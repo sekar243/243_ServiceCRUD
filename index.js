@@ -45,7 +45,7 @@ app.post('/biodata', (req, res) => {
         .catch(err => console.error(err));
 });
 
-app.put('/biodata', (req, res) => {
+app.put('/biodata/:id', (req, res) => {
     const { id } = req.body;
 
     pool.query(
