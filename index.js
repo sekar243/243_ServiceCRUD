@@ -34,7 +34,7 @@ app.get('/', (req, res, next) => {
         });
 });
 
-app.get('/biodata', (req, res) => {
+app.post('/biodata', (req, res) => {
     const { id, nama, nim, kelas } = req.body;
 
     pool.query(
@@ -44,4 +44,6 @@ app.get('/biodata', (req, res) => {
         .then(result => res.json(result.rows[0]))
         .catch(err => console.error(err));
 });
+
+
 
