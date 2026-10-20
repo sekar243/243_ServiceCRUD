@@ -21,7 +21,7 @@ const pool = new Pool({
     port: 5432
 })
 
-app.get('/biodata', (req, res, next) => {
+app.get('/', (req, res, next) => {
     console.log("TEST DATA :");
     pool.query('Select * from biodata')
         .then(testData => {
@@ -32,5 +32,7 @@ app.get('/biodata', (req, res, next) => {
             console.error(err);
             res.status(500).send('Internal Server Error');
         });
-})
+});
+
+
 
