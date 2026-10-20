@@ -70,3 +70,7 @@ app.put('/biodata', (req, res) => {
         });
 });
 
+app.delete('/biodata/:id', (req, res) => {
+    const { id } = req.params;
+
+});
