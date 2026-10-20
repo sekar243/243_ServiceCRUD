@@ -45,5 +45,7 @@ app.post('/biodata', (req, res) => {
         .catch(err => console.error(err));
 });
 
+app.put('/biodata', (req, res) => {
+    const { id } = req.body;
 
-
+    
