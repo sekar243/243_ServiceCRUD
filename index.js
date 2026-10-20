@@ -48,4 +48,25 @@ app.post('/biodata', (req, res) => {
 app.put('/biodata', (req, res) => {
     const { id } = req.body;
 
-    
+    pool.query(
+        'UPDATE biodata SET nama=$1, nim=$2, kelas=$3 WHERE id=$4 RETURNING *',
+        [nama, nim, kelas, id]
+    )
+        .then(result => {
+            if (result.rowsCount === 0) {
+                return res.status(404).json({
+                    message: "Data tidak ditemukan"
+                });
+            }
+
+            res.json({
+                message: "Data berhasil diupdate",
+                data: result.rows[0]
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+        });
+});
+
