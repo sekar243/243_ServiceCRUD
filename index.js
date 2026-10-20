@@ -34,5 +34,9 @@ app.get('/', (req, res, next) => {
         });
 });
 
+app.get('/biodata', (req, res) => {
+    const { id, nama, nim, kelas } = req.body;
 
+    
+});
 
